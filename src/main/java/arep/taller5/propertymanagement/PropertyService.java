@@ -25,12 +25,23 @@ public class PropertyService {
     }
 
     public Property updateProperty(Long id, Property propertyDetails) {
-        Property property = propertyRepository.findById(id).orElseThrow(() -> new RuntimeException("Property not found"));
-        property.setAddress(propertyDetails.getAddress());
-        property.setPrice(propertyDetails.getPrice());
-        property.setSize(propertyDetails.getSize());
-        property.setDescription(propertyDetails.getDescription());
-        return propertyRepository.save(property);
+        Property existingProperty = propertyRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Property not found"));
+
+        if (propertyDetails.getAddress() != null) {
+            existingProperty.setAddress(propertyDetails.getAddress());
+        }
+        if (propertyDetails.getPrice() != null) {
+            existingProperty.setPrice(propertyDetails.getPrice());
+        }
+        if (propertyDetails.getSize() != null) {
+            existingProperty.setSize(propertyDetails.getSize());
+        }
+        if (propertyDetails.getDescription() != null) {
+            existingProperty.setDescription(propertyDetails.getDescription());
+        }
+
+        return propertyRepository.save(existingProperty);
     }
 
     public void deleteProperty(Long id) {
