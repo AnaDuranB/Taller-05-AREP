@@ -1,4 +1,5 @@
-# Taller-05-AREP Create a CRUD System to Manage Properties
+# Taller-05-AREP 
+#### Create a CRUD System to Manage Properties
 ## Property Management System 🏠
 
 This project is a **CRUD (Create, Read, Update, Delete)** system designed to manage real estate properties. It allows users to perform the following operations on property listings:
@@ -20,14 +21,18 @@ The system is divided into three main components:
     - Provides a user interface for managing properties.
 2. **Backend**:
     - Built with **Spring Boot**.
-    - Exposes RESTful endpoints for CRUD operations. Uses 8080 port.
+    - Exposes RESTful endpoints for CRUD operations. It uses port 8080.
     - Handles business logic and communicates with the database.
 3. **Database**:
     - Built with **MySQL**.
     - Stores property data (ID, address, price, size, description).
-    - Hosted in a Docker container on an EC2 instance. Uses 3306 port.
+    - Hosted in a Docker container on an EC2 instance. It uses port 3306.
       
 ![codeviz-diagram-2025-03-04T15-10-52 drawio](https://github.com/user-attachments/assets/a2961c95-d94b-4563-905f-8eef129ea356)
+
+Although this is the architecture, the web application (Frontend and Backend) runs inside a Docker container on an EC2 instance, not separately.
+
+![arquitectura](https://github.com/user-attachments/assets/c4dd1654-1332-4e22-b147-0a3ed5b090ef)
 
 
 ### **Interaction Between Components**
@@ -53,9 +58,56 @@ The main classes in the backend are:
     - Exposes RESTful endpoints.
     - Handles HTTP requests and delegates operations to `PropertyService`.
 
-![image](https://github.com/user-attachments/assets/3526a41b-901c-48b0-880c-b698acf70a6d)
 
-## **Deployment Instructions**
+
+    ```
+    src/
+      main/
+        java/
+          arep/
+            taller5/
+                propertymanagement/               
+                    Property.java              # Data model for properties
+                    PropertyController.java    # Controller to handle properties
+                    PropertyRepository.java    # Repository
+                    PropertyService.java       # Service containing business logic
+                MicroSpringBoot.java           # Main class
+        resources/                    # Static files folder
+            static/    
+                index.html              # HTML file
+                styles.css              # CSS file
+                app.js                  # JavaScript file
+            application.properties      # Configuration and database connection
+      test/
+        java/                       # Unit tests
+    Dockerfile                      # Docker file
+    pom.xml                         # Maven configuration file
+    README.md                       # Project documentation
+
+    ```
+
+    ![image](https://github.com/user-attachments/assets/3526a41b-901c-48b0-880c-b698acf70a6d)
+
+## **Installing** ⚙️
+
+1. Download the repository from GitHub in a .zip or clone it to your local machine using Git.
+    
+    ```
+    git clone https://github.com/AnaDuranB/Taller-05-AREP.git
+    
+    ```
+    
+2. Navigate to the project directory.
+    
+    ```
+    cd Taller-05-AREP
+    ```
+    
+3. Build the project:
+    
+    `mvn clean install`
+   
+## **Deployment Instructions** 📝
 
 Follow these steps to deploy the system on AWS:
 
@@ -124,8 +176,8 @@ Follow these steps to deploy the system on AWS:
     ```
     
 #### AWS:
-4. Launch another EC2 instance for the backend.
-5. Connect to the instance via SSH:
+1. Launch another EC2 instance for the backend.
+2. Connect to the instance via SSH:
     
     ``` bash
     ssh -i "your-key.pem" ec2-user@<public-ip>
@@ -160,7 +212,7 @@ Follow these steps to deploy the system on AWS:
       ![image](https://github.com/user-attachments/assets/e4978105-5136-4936-9e65-1b05cb9ec050)
 
       
-## SCREENSHOOTS:
+## SCREENSHOOTS: 📷
 #### Final work:
 - GET
 ![image](https://github.com/user-attachments/assets/7c4ab991-37a9-4bd1-96be-996ffcf2fd6f)
@@ -175,6 +227,30 @@ Follow these steps to deploy the system on AWS:
 ![image](https://github.com/user-attachments/assets/c0b16c17-1f12-478e-99f6-ad9b04b0b8dd)
 ![image](https://github.com/user-attachments/assets/b56beeba-3225-48c9-ae58-e5cc7c208b2d)
 
+---
+## Running the tests ✅
+
+To run the automated tests:
+
+```
+mvn test
+```
+![image](https://github.com/user-attachments/assets/0ca2ad17-b12e-42a4-968c-c3a6d9ea939d)
+
+These tests verify the server's correct response to different requests.
+
+![image](https://github.com/user-attachments/assets/403a3d45-de56-4888-b873-7eb68cee1515)
+
+
+## Built With
+
+- [Java SE](https://www.oracle.com/java/) - Programming language
+- [Maven](https://maven.apache.org/) - Dependency management and build tool
+
+
+## Authors
+
+- Ana Maria Duran - *AREP* *Taller 5* - [AnaDuranB](https://github.com/AnaDuranB)
 
 
 
