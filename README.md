@@ -11,6 +11,10 @@ This project is a **CRUD (Create, Read, Update, Delete)** system designed to m
 
 The system is built using a **Spring Boot** backend, a **MySQL** database, and a simple **HTML + JavaScript** frontend. It is deployed on **AWS** using two EC2 instances: one for the backend and another for the database.
 
+
+https://github.com/user-attachments/assets/475fd1f9-8dc1-47a9-aac1-eb44c1bb8a2b
+
+
 ---
 ## System Architecture 👩🏻‍💻
 The system is divided into three main components:
