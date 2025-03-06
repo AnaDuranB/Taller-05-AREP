@@ -11,8 +11,9 @@ This project is a **CRUD (Create, Read, Update, Delete)** system designed to m
 
 The system is built using a **Spring Boot** backend, a **MySQL** database, and a simple **HTML + JavaScript** frontend. It is deployed on **AWS** using two EC2 instances: one for the backend and another for the database.
 
+**Click on the thumbnail to watch the setup video from scratch for deployment:**
 
-https://github.com/user-attachments/assets/475fd1f9-8dc1-47a9-aac1-eb44c1bb8a2b
+[![Título del Video](https://img.youtube.com/vi/9qML8eQ6x6c/0.jpg)](https://youtu.be/9qML8eQ6x6c)
 
 
 ---
@@ -131,7 +132,7 @@ Follow these steps to deploy the system on AWS:
     sudo yum install docker -y
     sudo service docker start
     sudo usermod -a -G docker ec2-user
-    docker run --name database-container -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=property_db -p 3307:3306 -d mysql:latest
+    docker run --name database-container -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=property_db -p 3306:3306 -d mysql:latest
     ```
     
 4. Verify the database is running:
@@ -230,6 +231,15 @@ Follow these steps to deploy the system on AWS:
 - DELETE
 ![image](https://github.com/user-attachments/assets/c0b16c17-1f12-478e-99f6-ad9b04b0b8dd)
 ![image](https://github.com/user-attachments/assets/b56beeba-3225-48c9-ae58-e5cc7c208b2d)
+
+#### Messages:
+- Error:
+
+    ![image](https://github.com/user-attachments/assets/15113156-b3c4-4e6f-86b1-ff38944f4200)
+
+- Success:
+
+    ![image](https://github.com/user-attachments/assets/c3f87f7b-2c10-46a9-9eef-542d5efa5d8c)
 
 ---
 ## Running the tests ✅
