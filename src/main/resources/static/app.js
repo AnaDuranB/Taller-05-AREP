@@ -1,4 +1,25 @@
 const API_URL = "/api/properties";
+function showSuccess(message) {
+    Toastify({
+        text: message,
+        duration: 3000,
+        close: true,
+        gravity: "top",
+        position: "right",
+        backgroundColor: "green",
+    }).showToast();
+}
+
+function showError(message) {
+    Toastify({
+        text: message,
+        duration: 3000,
+        close: true,
+        gravity: "top",
+        position: "right",
+        backgroundColor: "red",
+    }).showToast();
+}
 
 async function loadProperties() {
     try {
@@ -40,10 +61,11 @@ document.getElementById("propertyForm").addEventListener("submit", async (e) => 
             body: JSON.stringify(property)
         });
         if (response.ok) {
-            alert("Property added successfully!");
+            showSuccess("Property added successfully!");
             loadProperties();
         }
     } catch (error) {
+        showError("Failed to add property.");
         console.error("Error adding property:", error);
     }
 });
@@ -68,10 +90,11 @@ async function updateProperty(id) {
             body: JSON.stringify(updatedProperty)
         });
         if (response.ok) {
-            alert("Property updated successfully!");
+            showSuccess("Property updated successfully!");
             loadProperties();
         }
     } catch (error) {
+        showError("Failed to update property.");
         console.error("Error updating property:", error);
     }
 }
@@ -82,10 +105,11 @@ async function deleteProperty(id) {
             method: "DELETE"
         });
         if (response.ok) {
-            alert("Property deleted successfully!");
+            showSuccess("Property deleted successfully!");
             loadProperties();
         }
     } catch (error) {
+        showError("Failed to delete property.");
         console.error("Error deleting property:", error);
     }
 }
