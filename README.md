@@ -232,7 +232,8 @@ Follow these steps to deploy the system on AWS:
 ![image](https://github.com/user-attachments/assets/c0b16c17-1f12-478e-99f6-ad9b04b0b8dd)
 ![image](https://github.com/user-attachments/assets/b56beeba-3225-48c9-ae58-e5cc7c208b2d)
 
-#### Messages:
+## For extra credit:
+### Feedback:
 - Error:
 
     ![image](https://github.com/user-attachments/assets/15113156-b3c4-4e6f-86b1-ff38944f4200)
@@ -240,6 +241,26 @@ Follow these steps to deploy the system on AWS:
 - Success:
 
     ![image](https://github.com/user-attachments/assets/c3f87f7b-2c10-46a9-9eef-542d5efa5d8c)
+
+### Pagination 
+
+![image](https://github.com/user-attachments/assets/6a19488a-f6f0-4b13-b4ca-aa9c9ce2ecf9)
+
+### Searching 
+
+#### By address
+
+![image](https://github.com/user-attachments/assets/504f6776-d7a6-419c-9abe-cb4067aaa8b9)
+
+#### By price
+
+![image](https://github.com/user-attachments/assets/449185a5-d6b2-4707-8b4a-dff4db66e368)
+
+#### By size
+
+![image](https://github.com/user-attachments/assets/071da210-3eb0-4e50-9450-edd05a3b2d5b)
+
+
 
 ---
 ## Running the tests ✅
