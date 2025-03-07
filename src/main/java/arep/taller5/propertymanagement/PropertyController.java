@@ -14,10 +14,17 @@ public class PropertyController {
     private PropertyService propertyService;
 
     @GetMapping
-    public List<Property> getAllProperties() {
-        return propertyService.getAllProperties();
+    public ResponseEntity<?> getAllProperties(
+            @RequestParam(required = false) Integer page,
+            @RequestParam(required = false) Integer size) {
+        if (page != null && size != null) {
+            Page<Property> propertiesPage = propertyService.getAllPropertiesPaged(page, size);
+            return ResponseEntity.ok(propertiesPage);
+        } else {
+            List<Property> properties = propertyService.getAllProperties();
+            return ResponseEntity.ok(properties);
+        }
     }
-
     @GetMapping("/{id}")
     public ResponseEntity<Property> getPropertyById(@PathVariable Long id) {
         return propertyService.getPropertyById(id)
@@ -41,19 +48,16 @@ public class PropertyController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/paged")
-    public Page<Property> getAllPropertiesPaged(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "10") int size) {
-        return propertyService.getAllProperties(page, size);
-    }
     @GetMapping("/search")
-    public List<Property> searchProperties(
+    public ResponseEntity<List<Property>> searchProperties(
             @RequestParam(required = false) String address,
             @RequestParam(required = false) Double minPrice,
             @RequestParam(required = false) Double maxPrice,
             @RequestParam(required = false) Double minSize,
             @RequestParam(required = false) Double maxSize) {
-        return propertyService.searchProperties(address, minPrice, maxPrice, minSize, maxSize);
+
+        List<Property> properties = propertyService.searchProperties(address, minPrice, maxPrice, minSize, maxSize);
+        return ResponseEntity.ok(properties);
     }
+
 }

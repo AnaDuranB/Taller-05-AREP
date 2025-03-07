@@ -17,6 +17,9 @@ public class PropertyService {
         return propertyRepository.findAll();
     }
 
+    public Page<Property> getAllPropertiesPaged(int page, int size) {
+        return propertyRepository.findAll(PageRequest.of(page, size));
+    }
     public Optional<Property> getPropertyById(Long id) {
         return propertyRepository.findById(id);
     }
